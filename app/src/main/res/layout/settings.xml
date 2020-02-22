@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/settingsFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- This LinearLayout represents the contents of the screen  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- The ActionBar displayed at the top -->
+            <include
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/settingsConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                <TextView
+                    android:id="@+id/howToGo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Choose a transportation"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintTop_toBottomOf="@id/recyclerView" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/walk"
+                    android:src="@drawable/walk"
+                    android:layout_width="@dimen/iconSize"
+                    android:layout_height="@dimen/iconSize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/howToGo"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@color/colorPrimary"/>
+                    />
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/bike"
+                    android:layout_width="@dimen/iconSize"
+                    android:layout_height="@dimen/iconSize"
+                    android:src="@drawable/bike"
+                    app:layout_constraintStart_toEndOf="@id/walk"
+                    app:layout_constraintTop_toTopOf="@id/walk"
+                    android:layout_marginStart="10dp"
+                    tool:srcCompat="@tools:sample/avatars"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@color/colorPrimary"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/subway"
+                    android:layout_width="@dimen/iconSize"
+                    android:layout_height="@dimen/iconSize"
+                    android:src="@drawable/subway"
+                    app:layout_constraintStart_toEndOf="@id/bike"
+                    app:layout_constraintTop_toTopOf="@id/walk"
+                    android:layout_marginStart="10dp"
+                    tool:srcCompat="@tools:sample/avatars"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@color/colorPrimary"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/taxi"
+                    android:layout_width="@dimen/iconSize"
+                    android:layout_height="@dimen/iconSize"
+                    android:src="@drawable/taxi"
+                    app:layout_constraintStart_toEndOf="@id/subway"
+                    app:layout_constraintTop_toTopOf="@id/walk"
+                    android:layout_marginStart="10dp"
+                    tool:srcCompat="@tools:sample/avatars"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/transportationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:textStyle="bold"
+                    android:text="Selected mode: "
+                    app:layout_constraintStart_toStartOf="@id/howToGo"
+                    app:layout_constraintTop_toBottomOf="@id/taxi" />
+
+                <TextView
+                    android:id="@+id/transportation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text=""
+                    app:layout_constraintStart_toEndOf="@id/transportationText"
+                    app:layout_constraintTop_toTopOf="@id/transportationText"
+                    tool:text="BIKE" />
+
+                <TextView
+                    android:id="@+id/timeText"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estimated time: "
+                    app:layout_constraintStart_toStartOf="@id/transportationText"
+                    app:layout_constraintTop_toBottomOf="@id/transportationText" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toEndOf="@id/timeText"
+                    app:layout_constraintTop_toBottomOf="@id/transportationText"
+                    tool:text="20 mins" />
+
+                <TextView
+                    android:id="@+id/detailsText"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail: "
+                    app:layout_constraintStart_toStartOf="@id/timeText"
+                    app:layout_constraintTop_toBottomOf="@id/timeText" />
+
+
+                <TextView
+                    android:id="@+id/details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/detailsText"
+                    app:layout_constraintTop_toBottomOf="@id/timeText"
+                    tool:text="go to 1,2asdjnasdjsahak;dhaskjdsakdbsajbdjksabdkjsabdk;jsab;dsadjksabdasdbjkaskbjdasdsafsa" />
+
+                <Button
+                    android:id="@+id/SettingLetsGoButton"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="60dp"
+                    android:background="@drawable/rounded_button"
+                    android:text="Let's go"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+
+    <!-- The navigation drawer that comes from the left -->
+    <!-- Note that `android:layout_gravity` needs to be set to 'start' -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nvView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@android:color/white"
+        app:menu="@menu/drawer" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

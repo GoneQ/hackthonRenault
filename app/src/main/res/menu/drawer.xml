@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Preferred path">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/fastest"
+                    android:title="Fastest path" />
+                <item
+                    android:id="@+id/pleasant"
+                    android:title="Pleasant path" />
+                <item
+                    android:id="@+id/comfort"
+                    android:title="Comfort path" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/showWebView"
+                    android:title="Display Map"/>
+            </group>
+        </menu>
+    </item>
+
+<!--    <item android:titleTextColor="URL">-->
+<!--        <menu>-->
+<!--            <item android:id="@+id/menuUrl"-->
+<!--                android:title=""-->
+<!--                app:showAsAction="collapseActionView|ifRoom"-->
+<!--                app:actionViewClass="android.widget.EditText" />-->
+<!--        </menu>-->
+<!--    </item>-->
+</menu>
